@@ -1,0 +1,46 @@
+name: Issue Notification from External Repositories
+
+on:
+  repository_dispatch:
+    types: [issue_created]
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Log Incoming Payload
+        id: log_payload
+        uses: actions/github-script@v6
+        with:
+          script: |
+            console.log("Received Dispatch Event Payload:", JSON.stringify(context.payload, null, 2));
+            const issue = context.payload.client_payload.issue_data;
+            if (!issue) {
+              core.setFailed("No issue data in payload");
+              return;
+            }
+            if (!issue.body.includes("Are you Saxton Lab/Leidos employee?") || !issue.body.includes("No")) {
+              core.setFailed("Issue is from a Leidos employee");
+              return;
+            }
+            core.setOutput("title", issue.title);
+            core.setOutput("url", issue.html_url);
+            core.setOutput("body", issue.body);
+
+      - name: Send Email Notification
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.dot.gov          # DOT SMTP server address
+          server_port: 587                      # Use 465 for SSL if required
+          secure: true                          # Enables TLS
+          username: ${{ secrets.SMTP_USERNAME }} # DOT email username
+          password: ${{ secrets.SMTP_PASSWORD }} # DOT email password
+          subject: "New Issue Created: ${{ steps.log_payload.outputs.title }}"
+          body: |
+            A new issue was created:
+            - Title: ${{ steps.log_payload.outputs.title }}
+            - URL: ${{ steps.log_payload.outputs.url }}
+            - Description: ${{ steps.log_payload.outputs.body }}
+          to: CAVSupportServices@dot.gov
+          from: CAVSupportServices@dot.gov
