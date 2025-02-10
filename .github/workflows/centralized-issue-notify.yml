@@ -31,11 +31,10 @@ jobs:
       - name: Send Email Notification
         uses: dawidd6/action-send-mail@v3
         with:
-          server_address: smtp.dot.gov          # DOT SMTP server address
-          server_port: 587                      # Use 465 for SSL if required
-          secure: true                          # Enables TLS
-          username: ${{ secrets.SMTP_USERNAME }} # DOT email username
-          password: ${{ secrets.SMTP_PASSWORD }} # DOT email password
+          server_address: smtp.dot.gov  # Replace with the correct SMTP server for dot.gov
+          server_port: 587             # Replace with the correct port (e.g., 587 for TLS)
+          username: ${{ secrets.SMTP_USERNAME }}  # Replace with the dot.gov email address
+          password: ${{ secrets.SMTP_PASSWORD }}  # Replace with the dot.gov email password
           subject: "New Issue Created: ${{ steps.log_payload.outputs.title }}"
           body: |
             A new issue was created:
