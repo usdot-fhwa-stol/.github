@@ -5,7 +5,8 @@ body:
   - type: dropdown 
     id: STOLMember
     attributes:
-      label: Are you Saxton Lab/Leidos employee? 
+      label: **Employee Status** (Select one)
+      description: Are you Saxton Lab/Leidos employee? 
       options:
         - "Yes"
         - "No"
