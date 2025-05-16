@@ -1,28 +1,30 @@
 name: Enhancement
-description: Request new functionality
+description: "Request new functionality"
 labels: ["enhancement"]
 body:
-  - type: dropdown 
+  - type: dropdown
     id: STOLMember
     attributes:
-      label: **Employee Status** (Select one)
-      description: Are you Saxton Lab/Leidos employee? 
+      label: "**Employee Status** (Select one)"
+      description: "Are you a Saxton Lab/Leidos employee?"
       options:
         - "Yes"
         - "No"
     validations:
       required: true
+
   - type: textarea
     id: summary
     attributes:
-      label: Summary
-      description: Provide a detailed description of the suggested new functionality.
-      placeholder: Be sure to include contextual info, as readers may not be aware of what you are doing.
+      label: "Summary"
+      description: "Provide a detailed description of the suggested new functionality."
+      placeholder: "Be sure to include contextual info, as readers may not be aware of what you are doing."
     validations:
       required: true
+
   - type: textarea
     id: reasoning
     attributes:
-      label: Reasoning for new functionality
+      label: "Reasoning for new functionality"
     validations:
       required: false
