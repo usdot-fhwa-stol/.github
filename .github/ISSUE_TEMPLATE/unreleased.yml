@@ -2,10 +2,11 @@ name: Unreleased Bug
 description: Report a bug not yet in a release
 labels: ["anomaly", "bug", "unreleased"]
 body:
-  - type: dropdown 
+  - type: dropdown
     id: STOLMember
     attributes:
-      label: Are you Saxton Lab/Leidos employee? 
+      label: "**Employee Status** (Select one)"
+      description: "Are you a Saxton Lab/Leidos employee?"
       options:
         - "Yes"
         - "No"
