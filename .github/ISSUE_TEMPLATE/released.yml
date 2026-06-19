@@ -12,6 +12,40 @@ body:
         - "No"
     validations:
       required: true
+
+  - type: input
+    id: organization
+    attributes:
+      label: Organization Name
+      description: "External users only: What organization are you from?"
+    validations:
+      required: false
+
+  - type: textarea
+    id: deployment
+    attributes:
+      label: How Are You Using or Deploying This Tool?
+      description: "External users only: Describe your setup or use case."
+      placeholder: e.g. running on-prem, cloud deployment, research use, etc.
+    validations:
+      required: false
+
+  - type: input
+    id: location
+    attributes:
+      label: Location
+      description: "External users only: City/State or Country."
+    validations:
+      required: false
+
+  - type: textarea
+    id: external-context
+    attributes:
+      label: Additional Context for Support
+      description: "External users only: Anything else that would help us triage your issue?"
+    validations:
+      required: false
+
   - type: textarea
     id: summary
     attributes:
@@ -20,17 +54,29 @@ body:
       placeholder: Be sure to include contextual info, as readers may not be aware of what you are doing.
     validations:
       required: true
+
   - type: dropdown
     id: version
     attributes:
       label: Version
       description: What version are you running that you noticed this problem?
       options:
-        - 4.5.0 (Current)
+        - 4.12.0 (Current)
+        - 4.11.0 
+        - 4.10.0
+        - 4.9.0
+        - 4.8.0
+        - 4.7.1
+        - 4.7.0
+        - 4.6.1
+        - 4.6.0
+        - 4.5.1
+        - 4.5.0
+        - 4.4.3
         - 4.4.2
         - 4.4.1
         - 4.4.0
-        - 4.3.0 
+        - 4.3.0
         - 4.2.0
         - 4.1.0
         - 4.0.3
@@ -38,12 +84,14 @@ body:
         - 3.11.0
     validations:
       required: true
+
   - type: textarea
     id: expected-behavior
     attributes:
       label: Expected Behavior
     validations:
       required: true
+
   - type: textarea
     id: actual-behavior
     attributes:
@@ -51,6 +99,7 @@ body:
       description: Describe what happens in the version noted above that you'd like to change.
     validations:
       required: true
+
   - type: textarea
     id: steps
     attributes:
@@ -60,6 +109,7 @@ body:
         2. Do that
     validations:
       required: true
+
   - type: input
     id: related
     attributes:
