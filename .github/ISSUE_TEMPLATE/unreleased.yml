@@ -19,7 +19,7 @@ body:
       label: Organization Name
       description: "External users only: What organization are you from?"
     validations:
-      required: false
+      required: true
 
   - type: textarea
     id: deployment
@@ -28,7 +28,7 @@ body:
       description: "External users only: Describe your setup or use case."
       placeholder: e.g. running on-prem, cloud deployment, research use, etc.
     validations:
-      required: false
+      required: true
 
   - type: input
     id: location
