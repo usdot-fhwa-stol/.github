@@ -12,6 +12,40 @@ body:
         - "No"
     validations:
       required: true
+
+  - type: input
+    id: organization
+    attributes:
+      label: Organization Name
+      description: "External users only: What organization are you from?"
+    validations:
+      required: true
+
+  - type: textarea
+    id: deployment
+    attributes:
+      label: How Are You Using or Deploying This Tool?
+      description: "External users only: Describe your setup or use case."
+      placeholder: e.g. running on-prem, cloud deployment, research use, etc.
+    validations:
+      required: true
+
+  - type: input
+    id: location
+    attributes:
+      label: Location
+      description: "External users only: City/State or Country."
+    validations:
+      required: false
+
+  - type: textarea
+    id: external-context
+    attributes:
+      label: Additional Context for Support
+      description: "External users only: Anything else that would help us triage your issue?"
+    validations:
+      required: false
+
   - type: textarea
     id: summary
     attributes:
